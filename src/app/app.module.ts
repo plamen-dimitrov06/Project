@@ -10,11 +10,19 @@ import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './/app-routing.module';
+import { StructureComponent } from './structure/structure.component';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SideNavComponent
+    SideNavComponent,
+    StructureComponent,
+    HomeComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +31,7 @@ import { FormsModule } from '@angular/forms';
     HttpModule,
     HttpClientModule,
     FormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
