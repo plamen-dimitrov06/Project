@@ -1,9 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyOwnCustomMaterialModuleModule } from './my-own-custom-material-module/my-own-custom-material-module.module';
 
 import {HttpClientModule} from '@angular/common/http';
@@ -15,6 +15,7 @@ import { StructureComponent } from './structure/structure.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
+import { FacultyAddComponent } from './faculty-add/faculty-add.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UsersComponent } from './users/users.component';
     SideNavComponent,
     StructureComponent,
     HomeComponent,
-    UsersComponent
+    UsersComponent,
+    FacultyAddComponent
   ],
   imports: [
     BrowserModule,

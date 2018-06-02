@@ -1,3 +1,4 @@
+<div>
   <mat-form-field color="primary" floatLabel="never">
       <mat-select [(ngModel)]="selection" placeholder="Структура">
         <mat-option *ngFor="let item of structure" [value]="item.value">
@@ -5,85 +6,60 @@
         </mat-option>
       </mat-select>
   </mat-form-field>
- 
-<mat-accordion *ngIf="selection == 'tree-0'">
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      Факултет АГРАРНО-ИНДУСТРИАЛЕН
-    </mat-expansion-panel-header>
 
-    <mat-list>
-      <mat-list-item>
-        <p>Земеделска техника и технологии</p>
-        <span class="example-spacer"></span>          
-        <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
-      </mat-list-item>
-      <mat-list-item>
-        <p>Екология и опазване на околната среда</p>
-        <span class="example-spacer"></span>          
-        <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
-      </mat-list-item>
-      <mat-list-item>
-        <p>Хидравлична и пневматична техника</p>
-        <span class="example-spacer"></span>          
-        <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
-      </mat-list-item>
-      <mat-list-item>
-        <p>Промишлен дизайн</p>
-        <span class="example-spacer"></span>          
-        <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
-      </mat-list-item>
-      <mat-list-item (click)="optionOn()">
-        <p>Мениджмънт и сервиз на техниката - Магистър</p>
-        <span class="example-spacer"></span>          
-        <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
-      </mat-list-item>
-      <mat-list-item (click)="optionOn()">
-        <p>Мениджмънт и сервиз на техниката - Бакалавър </p>
-        <span class="example-spacer"></span>
-        <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
-      </mat-list-item>
-    </mat-list>
-    
-  </mat-expansion-panel>
-  
-  <mat-expansion-panel >
-    <mat-expansion-panel-header>
-      Факултет МАШИННО-ТЕХНОЛОГИЧЕН
-    </mat-expansion-panel-header>
+  <a mat-raised-button routerLink="faculty-add">Добавяне</a>
 
-    <mat-accordion>
-      <mat-expansion-panel color="primary">
-        <mat-expansion-panel-header >
-          <p>Машиностроене и уредостроене</p>
-        </mat-expansion-panel-header>
-        <mat-panel-description>
-          <p>Брой студенти : 128</p>
+  <mat-accordion *ngIf="selection == 'tree-0'">
+
+    <mat-expansion-panel *ngFor="let faculty of test">
+      <mat-expansion-panel-header >
+        Факултет {{faculty.name}} &nbsp; <span *ngIf="faculty.abbreviation">({{faculty.abbreviation}})</span>
+      </mat-expansion-panel-header>
+
+      <mat-list>
+        <mat-list-item>
+          <p>Земеделска техника и технологии</p>
           <span class="example-spacer"></span>
-          <p>Брой дисциплини : 32</p>
-          <span class="example-spacer"></span>
-          <p>Действия:</p>
           <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
-        </mat-panel-description>
-      </mat-expansion-panel>
-
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <p>Машиностроителна техника и технологии</p>
-        </mat-expansion-panel-header>
-        <mat-panel-description>
-          <p>Брой студенти : 128</p>
+        </mat-list-item>
+        <mat-list-item>
+          <p>Екология и опазване на околната среда</p>
           <span class="example-spacer"></span>
-          <p>Брой дисциплини : 32</p>
-          <span class="example-spacer"></span>
-          <p>Действия:</p>
           <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
-        </mat-panel-description>
-      </mat-expansion-panel>
+        </mat-list-item>
+        <mat-list-item>
+          <p>Хидравлична и пневматична техника</p>
+          <span class="example-spacer"></span>
+          <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
+        </mat-list-item>
+        <mat-list-item>
+          <p>Промишлен дизайн</p>
+          <span class="example-spacer"></span>
+          <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
+        </mat-list-item>
+        <mat-list-item>
+          <p>Мениджмънт и сервиз на техниката - Магистър</p>
+          <span class="example-spacer"></span>
+          <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
+        </mat-list-item>
+        <mat-list-item>
+          <p>Мениджмънт и сервиз на техниката - Бакалавър </p>
+          <span class="example-spacer"></span>
+          <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
+        </mat-list-item>
+      </mat-list>
 
-      <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <p>Технология на материалите и материалознание</p>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel >
+      <mat-expansion-panel-header>
+        Факултет МАШИННО-ТЕХНОЛОГИЧЕН
+      </mat-expansion-panel-header>
+
+      <mat-accordion>
+        <mat-expansion-panel color="primary">
+          <mat-expansion-panel-header >
+            <p>Машиностроене и уредостроене</p>
           </mat-expansion-panel-header>
           <mat-panel-description>
             <p>Брой студенти : 128</p>
@@ -94,33 +70,61 @@
             <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
           </mat-panel-description>
         </mat-expansion-panel>
-    </mat-accordion>
-  </mat-expansion-panel>
 
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      Факултет ЕЛЕКТРОТЕХНИКА, ЕЛЕКТРОНИКА И АВТОМАТИКА
-    </mat-expansion-panel-header>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <p>Машиностроителна техника и технологии</p>
+          </mat-expansion-panel-header>
+          <mat-panel-description>
+            <p>Брой студенти : 128</p>
+            <span class="example-spacer"></span>
+            <p>Брой дисциплини : 32</p>
+            <span class="example-spacer"></span>
+            <p>Действия:</p>
+            <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
+          </mat-panel-description>
+        </mat-expansion-panel>
 
-    <p>Информация</p>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <p>Технология на материалите и материалознание</p>
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+              <p>Брой студенти : 128</p>
+              <span class="example-spacer"></span>
+              <p>Брой дисциплини : 32</p>
+              <span class="example-spacer"></span>
+              <p>Действия:</p>
+              <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
+            </mat-panel-description>
+          </mat-expansion-panel>
+      </mat-accordion>
+    </mat-expansion-panel>
 
-    <mat-action-row>
-      <button mat-button>Click me</button>
-    </mat-action-row>
-  </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        Факултет ЕЛЕКТРОТЕХНИКА, ЕЛЕКТРОНИКА И АВТОМАТИКА
+      </mat-expansion-panel-header>
 
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      Факултет ТРАНСПОРТЕН
-    </mat-expansion-panel-header>
+      <p>Информация</p>
 
-    <p>Информация.</p>
+      <mat-action-row>
+        <button mat-button>Click me</button>
+      </mat-action-row>
+    </mat-expansion-panel>
 
-    <mat-action-row>
-      <button mat-button>Click me</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-  
-  
-</mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        Факултет ТРАНСПОРТЕН
+      </mat-expansion-panel-header>
 
+      <p>Информация.</p>
+
+      <mat-action-row>
+        <button mat-button>Click me</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+
+  </mat-accordion>
+</div>

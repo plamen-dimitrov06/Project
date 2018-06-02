@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-structure',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StructureComponent implements OnInit {
 
-  selected = false;
-  actions = Array('arrow_upward','arrow_downward','closed');
-  constructor() { }
+  selection: any;
+
+  actions = Array('arrow_upward', 'arrow_downward', 'closed');
+  constructor(private http: HttpClient) { }
+  test: Object;
 
   structure = [
     {value: 'tree-0', viewValue: 'Дървовидна'},
@@ -17,5 +20,9 @@ export class StructureComponent implements OnInit {
   ];
   value = null;
   ngOnInit() {
+    this.http.get('/api/structure').subscribe(data => {
+      this.test = data;
+      console.log(this.test);
+    });
   }
 }
