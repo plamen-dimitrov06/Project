@@ -13,6 +13,11 @@ var UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  userType: {
+    type: String,
+    enum: ['teacher', 'admin'],
+    default: 'teacher'
+  },
   hash: String,
   salt: String,
   registration_date: {

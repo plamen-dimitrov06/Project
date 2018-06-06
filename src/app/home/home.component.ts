@@ -2,6 +2,8 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import { Component, OnInit, ChangeDetectorRef, ElementRef } from '@angular/core';
 import { MyOwnCustomMaterialModuleModule } from '../my-own-custom-material-module/my-own-custom-material-module.module';
 import { Chart } from 'chart.js';
+import { AuthenticationService } from '../authentication.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,7 +11,9 @@ import { Chart } from 'chart.js';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) { }
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public auth: AuthenticationService) { }
+
+  username = this.auth.getUserDetails().name;
 
   myChart: any;
   myChart2: any;

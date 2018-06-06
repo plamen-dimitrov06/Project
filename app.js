@@ -28,12 +28,13 @@ app.use(express.static(path.join(__dirname, 'dist')));
 // app.use('/structure', express.static(path.join(__dirname, 'dist')));
 // use the API routes when path starts with /api
 app.use(passport.initialize());
+
 app.use('/api', routesApi);
+
 // routes all pages using the Angular routing
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

@@ -6,16 +6,29 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { FacultyAddComponent } from './faculty-add/faculty-add.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { FacultiesComponent } from './faculties/faculties.component';
+import { FacultyEditComponent } from './faculty-edit/faculty-edit.component';
+import { FacultyDeleteComponent } from './faculty-delete/faculty-delete.component';
+import { CoursesComponent } from './courses/courses.component';
+import { CourseAddComponent } from './course-add/course-add.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'structure', component: StructureComponent },
-  { path: 'structure/faculty-add', component: FacultyAddComponent },
+  { path: 'faculties', component: FacultiesComponent },
+  { path: 'faculties/faculty-add', component: FacultyAddComponent },
+  { path: 'faculties/faculty-edit/:id', component: FacultyEditComponent },
+  { path: 'faculties/faculty-delete/:id', component: FacultyDeleteComponent },
   { path: 'users', component: UsersComponent },
   { path: 'subjects', component: UsersComponent },
-  { path: 'faculties', component: UsersComponent },
-  { path: 'stats', component: UsersComponent },
+  { path: 'courses', component: CoursesComponent },
+  { path: 'courses/course-add', component: CourseAddComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({

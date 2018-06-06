@@ -34,6 +34,8 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
+  MatGridTile,
+  MatGridTileText,
 } from '@angular/material';
 
 @NgModule({
@@ -105,8 +107,8 @@ import {
     MatTableModule,
     MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule,
-  
+    MatTooltipModule
+
   ],
   declarations: []
 })

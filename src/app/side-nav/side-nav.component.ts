@@ -1,15 +1,16 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { Component, OnInit, ChangeDetectorRef, ElementRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ElementRef, OnDestroy } from '@angular/core';
 import { MyOwnCustomMaterialModuleModule } from '../my-own-custom-material-module/my-own-custom-material-module.module';
 import { Chart } from 'chart.js';
 import { Title } from '@angular/platform-browser';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-side-nav',
   templateUrl: './side-nav.component.html',
   styleUrls: ['./side-nav.component.css'],
 })
-export class SideNavComponent implements OnInit {
+export class SideNavComponent implements OnInit, OnDestroy {
   private _mobileQueryListener: () => void;
   mobileQuery: MediaQueryList;
   value = '';
@@ -27,15 +28,20 @@ ngOnInit() {
   this.navItems.push(data4);
   const data5 = { key: 'Факултети', value: 'faculties'};
   this.navItems.push(data5);
-  const data6 = { key: 'Статистика', value: 'stats'};
+  const data6 = { key: 'Специалности', value: 'courses'};
   this.navItems.push(data6);
 }
 //   'Начало','Структура','Потребители','Дисциплини','Факултети','Статистика'
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private elementRef: ElementRef, private titleService: Title) {
+  constructor(public auth: AuthenticationService,
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher,
+    private elementRef: ElementRef,
+    private titleService: Title) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
+
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }

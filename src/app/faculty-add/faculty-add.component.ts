@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class FacultyAddComponent implements OnInit {
 
-  faculty = {};
+  faculty = { };
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -18,10 +18,8 @@ export class FacultyAddComponent implements OnInit {
   }
 
   addFaculty() {
-    this.http.post('/api/structure/faculty-add', this.faculty)
-      .subscribe(res => {
-          let id = res['_id'];
-          this.router.navigateByUrl("/structure");
+    this.http.post('/api/faculties/faculty-add', this.faculty).subscribe(() => {
+        this.router.navigateByUrl('/faculties');
         }, (err) => {
           console.log(err);
         }

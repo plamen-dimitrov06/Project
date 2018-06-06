@@ -2,16 +2,17 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  selector: 'app-courses',
+  templateUrl: './courses.component.html',
+  styleUrls: ['./courses.component.css']
 })
-export class UsersComponent implements OnInit, AfterViewInit {
-  displayedColumns = ['id', 'name', 'progress', 'color'];
-  dataSource: MatTableDataSource<UserData>;
+export class CoursesComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+
+  displayedColumns = ['id', 'name', 'progress', 'color'];
+  dataSource: MatTableDataSource<UserData>;
 
   constructor() {
     const users: UserData[] = [];

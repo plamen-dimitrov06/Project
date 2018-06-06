@@ -18,6 +18,7 @@ export class StructureComponent implements OnInit {
     {value: 'tree-0', viewValue: 'Дървовидна'},
     {value: 'input-1', viewValue: 'Форма'}
   ];
+
   value = null;
   ngOnInit() {
     this.http.get('/api/structure').subscribe(data => {
