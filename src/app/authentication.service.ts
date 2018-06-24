@@ -8,6 +8,7 @@ export interface UserDetails {
   _id: string;
   email: string;
   name: string;
+  userType: string;
   exp: number;
   iat: number;
 }

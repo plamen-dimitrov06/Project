@@ -18,18 +18,33 @@
               <textarea [(ngModel)]="course.description" type="text"  name="description" matInput placeholder="Описание" ></textarea>
             </mat-form-field>
 
-              <mat-radio-group class="example-radio-group" name="courseDegree" [(ngModel)]="course.courseDegree">
-                <mat-radio-button color="primary" class="example-radio-button" [value]="bachelors">
-                  Бакалавър
-                </mat-radio-button>
-                <mat-radio-button color="primary" class="example-radio-button" [value]="masters">
-                  Магистър
-                </mat-radio-button>
-              </mat-radio-group>
+            <mat-form-field class="example-full-width">
+              <mat-select placeholder="Факултет" name="faculty" [(ngModel)]="course.faculty">
+                <mat-option *ngFor="let faculty of faculties" [value]="faculty._id">
+                  {{ faculty.name }} {{ faculty._id }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-radio-group name="courseDegree" [(ngModel)]="course.courseDegree">
+              <mat-radio-button color="primary" class="example-radio-button" [value]="bachelors">
+                Бакалавър
+              </mat-radio-button>
+              <mat-radio-button color="primary" class="example-radio-button" [value]="masters">
+                Магистър
+              </mat-radio-button>
+            </mat-radio-group>
 
             <button mat-raised-button color="warn" routerLink="..">Отказ</button>
             <button type="submit" mat-raised-button color="primary" [disabled]="!courseForm.form.valid">Добавяне</button>
 
+          </form>
+          <form action="/upload" method="POST" #form target="_blank" enctype="multipart/form-data">
+            <div class="custom-file mb-3">
+              <input type="file" [(ngModel)]="file" name="file" id="file" multiple class="custom-file-input">
+              <label for="file" class="custom-file-label">Choose File</label>
+            </div>
+            <button type="submit" (click)="form.submit()" class="btn btn-primary btn-block">Search</button>
           </form>
         </div>
   </mat-card-content>

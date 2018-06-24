@@ -1,13 +1,25 @@
 var mongoose = require('mongoose');
+const Grid = require('gridfs-stream');
 var gracefulShutdown;
 mongoose.Promise = require('bluebird');
-var dbURI = 'mongodb://localhost/unidb';
+var dbURI = 'mongodb://localhost:27017/unidb';
 if (process.env.NODE_ENV === 'production') {
   dbURI = process.env.MONGOLAB_URI;
 }
+// Mongo URI
+const mongoURI = 'mongodb://localhost:27017/unidb';
 
 mongoose.connect(dbURI, {promiseLibrary: require('bluebird')});
 
+// Create mongo connection
+const conn = mongoose.createConnection(mongoURI, {promiseLibrary: require('bluebird')});
+
+let gfs;
+conn.once('open', () => {
+  // Init stream
+  gfs = Grid(conn.db, mongoose.mongo);
+  gfs.collection('uploads');
+});
 mongoose.connection.on('connected', function() {
   console.log('Mongoose connected to ' + dbURI);
 });

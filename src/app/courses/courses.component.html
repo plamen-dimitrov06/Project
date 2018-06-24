@@ -1,38 +1,54 @@
 <h2 class="mat-h1">Управление на специалности</h2>
 <a mat-raised-button mat-button routerLink="course-add">Добавяне</a>
-
-<div class="header">
-  <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Филтър">
+<br/>
+<form (ngSubmit)="findCourse(search)" #courseForm="ngForm">
+  <mat-form-field class="example-full-width">
+    <input [(ngModel)]="search" type="text"  name="text" matInput placeholder="Търсене"/>
   </mat-form-field>
-</div>
-
+  <button type='submit' mat-raised-button mat-button (ngSubmit)="findCourse(search)">Търсене</button>
+</form>
 <div class="container mat-elevation-z8">
+  <!--
+  <app-data-table [path]="'/api/courses'"
+  [displayedColumns]="['Име ', 'courseDegree', 'actions']">
+  </app-data-table>
+  -->
+  <mat-list>
+    <mat-list-item *ngFor="let course of test">
+      <p>{{course.name}} - {{course.courseDegree}} - {{course.faculty.name}}</p>
+      <span class="example-spacer"></span>
+      <span>
+        <a *ngFor="let action of actions" mat-icon-button routerLink="{{action.value}}//{{course._id}}">
+          <mat-icon >{{action.key}}</mat-icon>
+        </a>
+      </span>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</div>
+ <!--
 
-  <mat-table [dataSource]="dataSource" matSort>
+  <mat-table mat-hide [dataSource]="test" matSort>
 
-    <!-- ID Column -->
+    ID Column
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+      <mat-cell *matCellDef="let course"> {{course._id}} </mat-cell>
     </ng-container>
 
-    <!-- Progress Column -->
     <ng-container matColumnDef="progress">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Progress </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>
+      <mat-cell *matCellDef="let course"> {{course.name}} </mat-cell>
     </ng-container>
 
-    <!-- Name Column -->
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+      <mat-cell *matCellDef="let course"> {{course.courseDegree}} </mat-cell>
     </ng-container>
 
-    <!-- Color Column -->
     <ng-container matColumnDef="color">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Color </mat-header-cell>
-      <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </mat-cell>
+      <mat-cell *matCellDef="let course" [style.color]="course.color"> {{course.description}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -41,4 +57,5 @@
   </mat-table>
 
   <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-</div>
+
+-->

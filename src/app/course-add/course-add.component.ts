@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { FileUploader, FileItem } from 'ng2-file-upload';
+
+const URL = '/api/upload';
 
 @Component({
   selector: 'app-course-add',
@@ -9,14 +12,20 @@ import { Router } from '@angular/router';
 })
 export class CourseAddComponent implements OnInit {
 
-  course = {};
+  public uploader: FileUploader = new FileUploader({url: URL});
 
+  course = {};
+  faculties = {};
   bachelors = 'Бакалавър';
   masters = 'Магистър';
+  file: any;
 
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
+    this.http.get('/api/structure').subscribe(data => {
+      this.faculties = data;
+    });
   }
 
   addCourse() {
@@ -27,4 +36,14 @@ export class CourseAddComponent implements OnInit {
         }
       );
     }
+
+  addItem() {
+    this.http.post('/upload', this.file).subscribe(() => {
+      console.log(this.file + 'This should be the file');
+      this.router.navigateByUrl('/courses');
+    }, (err) => {
+      console.log(err);
+      }
+    );
+  }
 }

@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+var Course = require('./course');
 
 var FacultySchema = new mongoose.Schema({
   name: {
@@ -14,6 +15,7 @@ var FacultySchema = new mongoose.Schema({
     type: String,
     default: ""
   },
+  courses: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Course'}],
   updated_date: {
     type: Date,
     default: Date.now

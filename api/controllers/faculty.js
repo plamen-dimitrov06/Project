@@ -14,7 +14,7 @@ module.exports = {
   },
 
   getFaculties: (req,res) => {
-    Faculty.find().then(faculties =>{
+    Faculty.find({}).populate('courses').then(faculties =>{
       res.json(faculties);
     }).catch(err =>{
       console.log(err.message);
@@ -39,7 +39,6 @@ module.exports = {
 
   deleteFaculty: (req,res) => {
     Faculty.findByIdAndRemove(req.params.id, req.body).then(faculty => {
-      console.log("Test");
       res.json();
     }).catch(err => {
     console.log(err.message);

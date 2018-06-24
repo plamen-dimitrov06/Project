@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { CdkTableModule } from '@angular/cdk/table';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -36,10 +37,13 @@ import {
   MatTooltipModule,
   MatGridTile,
   MatGridTileText,
+
 } from '@angular/material';
 
 @NgModule({
   imports: [
+    BrowserModule,
+    CdkTableModule,
     CommonModule,
     MatAutocompleteModule,
     MatButtonModule,
@@ -73,8 +77,11 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+    BrowserModule,
   ],
   exports: [
+    BrowserModule,
+    CdkTableModule,
     CommonModule,
     MatAutocompleteModule,
     MatButtonModule,

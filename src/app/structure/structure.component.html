@@ -15,33 +15,8 @@
       </mat-expansion-panel-header>
 
       <mat-list>
-        <mat-list-item>
-          <p>Земеделска техника и технологии</p>
-          <span class="example-spacer"></span>
-          <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
-        </mat-list-item>
-        <mat-list-item>
-          <p>Екология и опазване на околната среда</p>
-          <span class="example-spacer"></span>
-          <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
-        </mat-list-item>
-        <mat-list-item>
-          <p>Хидравлична и пневматична техника</p>
-          <span class="example-spacer"></span>
-          <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
-        </mat-list-item>
-        <mat-list-item>
-          <p>Промишлен дизайн</p>
-          <span class="example-spacer"></span>
-          <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
-        </mat-list-item>
-        <mat-list-item>
-          <p>Мениджмънт и сервиз на техниката - Магистър</p>
-          <span class="example-spacer"></span>
-          <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
-        </mat-list-item>
-        <mat-list-item>
-          <p>Мениджмънт и сервиз на техниката - Бакалавър </p>
+        <mat-list-item *ngFor="let course of faculty.courses">
+          <p>{{course.name}}</p>
           <span class="example-spacer"></span>
           <button mat-icon-button *ngFor="let action of actions"><mat-icon >{{action}}</mat-icon></button>
         </mat-list-item>

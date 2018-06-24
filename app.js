@@ -3,21 +3,17 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
-//var mongoose = require('mongoose');
+var cookieParser = require('cookie-parser');
+var cookieSession = require('cookie-session');
 var passport = require('passport');
-/*
-mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/unidb', { promiseLibrary: require('bluebird') })
-  .then(() =>  console.log('connection succesful'))
-  .catch((err) => console.error(err));
-var faculty = require('./api/routes/faculty');
-var user = require('./api/routes/users');
-*/
+const multer = require('multer');
+const GridFsStorage = require('multer-gridfs-storage');
+const crypto = require('crypto');
+
 require('./api/models/db');
 
 require('./api/config/passport');
 var routesApi = require('./api/routes/index');
-
 
 var app = express();
 
@@ -25,11 +21,35 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'dist')));
-// app.use('/structure', express.static(path.join(__dirname, 'dist')));
-// use the API routes when path starts with /api
 app.use(passport.initialize());
+app.use(passport.session());
+// file upload bullshit
 
+const storage = new GridFsStorage({
+  url: 'mongodb://localhost:27017/unidb',
+  file: (req, file) => {
+    return new Promise((resolve, reject) => {
+      crypto.randomBytes(16, (err, buf) => {
+        if (err) {
+          return reject(err);
+        }
+        const filename = buf.toString('hex') + path.extname(file.originalname);
+        const fileInfo = {
+          filename: filename,
+          bucketName: 'uploads'
+        };
+        resolve(fileInfo);
+      });
+    });
+  }
+});
+const upload = multer({ storage });
+// end of file upload bullshit
+app.post('/upload', upload.array('file'), (req, res) => {
+  res.json();
+});
 app.use('/api', routesApi);
+
 
 // routes all pages using the Angular routing
 app.get('*', (req, res) => {

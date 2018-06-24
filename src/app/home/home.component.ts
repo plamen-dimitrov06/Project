@@ -13,8 +13,6 @@ export class HomeComponent implements OnInit {
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public auth: AuthenticationService) { }
 
-  username = this.auth.getUserDetails().name;
-
   myChart: any;
   myChart2: any;
 

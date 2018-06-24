@@ -44,3 +44,7 @@
     padding: 2em;
     margin-bottom: 64px;
   }
+
+  #cdk-overlay-1 {
+    top: 64px !important;
+  }

@@ -1,0 +1,67 @@
+<mat-radio-group [(ngModel)]="selection">
+  <mat-radio-button color="primary" [value]="1">Нова дисциплина</mat-radio-button>
+  <mat-radio-button color="primary" [value]="2">Преизползване на дисциплина</mat-radio-button>
+</mat-radio-group>
+
+<mat-card *ngIf="selection == '1'">
+
+  <mat-card-title>Нова Дисциплина</mat-card-title>
+
+  <mat-card-content>
+    <div class="container">
+      <form (ngSubmit)="addSubject()" #subjectForm="ngForm">
+
+        <mat-form-field>
+          <input [(ngModel)]="subject.name" type="text"  name="name" matInput placeholder="Име на дисциплината" required/>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input [(ngModel)]="subject.abbreviation" type="text"  name="abbreviation" matInput placeholder="Абривиатура"/>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <textarea [(ngModel)]="subject.description" type="text"  name="description" matInput placeholder="Описание" ></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="subject.start_date" [matDatepicker]="picker" name="start_date" placeholder="Начало">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input [(ngModel)]="subject.lectures" type="number"  name="lectures" matInput placeholder="Лекции" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input [(ngModel)]="subject.exercises" type="number"  name="exercises" matInput placeholder="Упражнения" />
+        </mat-form-field>
+
+        <mat-label>Курсова задача:</mat-label>
+        <mat-radio-group class="example-radio-group" name="courseWork" [(ngModel)]="subject.courseWork">
+          <mat-radio-button color="primary" class="example-radio-button" [value]="yes">
+            Да
+          </mat-radio-button>
+          <mat-radio-button color="primary" class="example-radio-button" [value]="no">
+            Не
+          </mat-radio-button>
+        </mat-radio-group>
+
+        <mat-label>Оценяване:</mat-label>
+        <mat-radio-group class="example-radio-group" name="evaluation" [(ngModel)]="subject.evaluation">
+          <mat-radio-button color="primary" class="example-radio-button" [value]="exam">
+            Изпит
+          </mat-radio-button>
+          <mat-radio-button color="primary" class="example-radio-button" [value]="grade">
+            Текуща оценка
+          </mat-radio-button>
+        </mat-radio-group>
+
+        <button mat-raised-button color="warn" routerLink="..">Отказ</button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!subjectForm.form.valid">Добавяне</button>
+
+      </form>
+    </div>
+  </mat-card-content>
+
+</mat-card>

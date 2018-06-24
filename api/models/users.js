@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var crypto = require("crypto");
 var jwt = require("jsonwebtoken");
-
+var Subject = require('./subject');
 
 var UserSchema = new mongoose.Schema({
   email: {
@@ -18,6 +18,7 @@ var UserSchema = new mongoose.Schema({
     enum: ['teacher', 'admin'],
     default: 'teacher'
   },
+  lecturesCreated: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Subject'}],
   hash: String,
   salt: String,
   registration_date: {
@@ -44,6 +45,7 @@ UserSchema.methods.generateJwt = function() {
     _id: this._id,
     email: this.email,
     name: this.name,
+    userType: this.userType,
     exp: parseInt(expiry.getTime() / 1000),
   }, "CAT"); // DO NOT KEEP YOUR SECRET IN THE CODE! REMOVE BEFORE RELEASE!
 };

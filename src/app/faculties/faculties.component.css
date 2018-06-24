@@ -14,7 +14,7 @@ mat-grid-tile mat-grid-tile-footer{
 }
 
 mat-grid-tile {
-  background: rgb(199, 199, 199);
+  background: white;
   justify-content: center;
 }
 

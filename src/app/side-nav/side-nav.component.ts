@@ -16,7 +16,6 @@ export class SideNavComponent implements OnInit, OnDestroy {
   value = '';
   search = false;
   navItems = Array();
-  currentNavItem = 'Начало';
 ngOnInit() {
   const data = { key: 'Начало', value: 'home'};
   this.navItems.push(data);

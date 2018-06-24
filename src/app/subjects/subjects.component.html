@@ -1,0 +1,23 @@
+<h2 class="mat-h1">Управление на дисциплини</h2>
+<a mat-raised-button mat-button routerLink="subject-add">Добавяне</a>
+<br/>
+<form (ngSubmit)="findCourse(search)" #courseForm="ngForm">
+  <mat-form-field class="example-full-width">
+    <input [(ngModel)]="search" type="text"  name="text" matInput placeholder="Търсене"/>
+  </mat-form-field>
+  <button type='submit' mat-raised-button mat-button (ngSubmit)="findCourse(search)">Търсене</button>
+</form>
+<div class="container mat-elevation-z8">
+  <mat-list>
+    <mat-list-item *ngFor="let course of test">
+      <p>{{course.name}}( {{course.author.name}} )</p>
+      <span class="example-spacer"></span>
+      <span>
+        <a *ngFor="let action of actions" mat-icon-button routerLink="{{action.value}}//{{course._id}}">
+          <mat-icon >{{action.key}}</mat-icon>
+        </a>
+      </span>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</div>
