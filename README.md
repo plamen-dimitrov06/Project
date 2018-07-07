@@ -6,9 +6,9 @@ Allows for uploading and managing e-learning resources. The project was built us
 
 In order to run the project locally you can either download a copy to your local machine or clone the project repo. Afterwards you have to install the project dependencies with :
 
-...
+```
 npm install
-...
+```
 
 ### Development server
 
