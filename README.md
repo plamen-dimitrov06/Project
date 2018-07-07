@@ -37,7 +37,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Built With
 
-These are the four main components of the project the rest can be found in the package.json
+These are the four main components of the project the rest can be found in the [package.json](package.json)
 
 * [Angular](https://angular.io) - JavaScript front-end framework 
 * [Exprees](https://expressjs.com) - Node.js web application framework
