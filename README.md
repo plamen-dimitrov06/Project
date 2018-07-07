@@ -39,10 +39,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 These are the four main components of the project the rest can be found in the package.json
 
-* Angular - JavaScript front-end framework - (https://angular.io)
-* Exprees - Node.js web application framework - (https://expressjs.com)
-* MongoDB - Document based NoSQL database - (https://www.mongodb.com)
-* Node.js - JavaScript runtime - (https://nodejs.org/en/)
+* [Angular](https://angular.io) - JavaScript front-end framework 
+* [Exprees](https://expressjs.com) - Node.js web application framework
+* [MongoDB](https://www.mongodb.com) - Document based NoSQL database
+* [Node.js](https://nodejs.org/en/) - JavaScript runtime
 
 ## License
 
