@@ -12,7 +12,7 @@ npm install
 
 ### Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. This is used primarily for testing the front-end behavior and in order to test the entire application you can use 'npm start'. This command will execute 'ng build' and node bin/www which will build the client application and run the express web server. Navigate to 'http://localhost:3000'. 
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. This is used primarily for testing the front-end behavior and in order to test the entire application you can use 'npm start'. This command will execute 'ng build' and node bin/www which will build the client application and run the express web server. Navigate to `http://localhost:3000/`. 
 
 ### Code scaffolding
 
