@@ -1,0 +1,15 @@
+<img src="../assets/images/banner.svg" width=300 height=300 alt="">
+<div class="containter">
+  <form (submit)="register()" #registerForm="ngForm">
+    <mat-form-field>
+      <input matInput type="text" class="form-control" required name="name" placeholder="Име" [(ngModel)]="credentials.name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="email" class="form-control" required name="email" placeholder="Имейл адрес" [(ngModel)]="credentials.email">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" class="form-control" required name="password" placeholder="Парола" [(ngModel)]="credentials.password">
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary" class="btn btn-default" [disabled]="!registerForm.form.valid">Регистрация</button>
+  </form>
+</div>

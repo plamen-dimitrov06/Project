@@ -1,0 +1,27 @@
+<div>
+  <mat-form-field color="primary" floatLabel="never">
+      <mat-select [(ngModel)]="selection" placeholder="Структура">
+        <mat-option *ngFor="let item of structure" [value]="item.value">
+          {{ item.viewValue }}
+        </mat-option>
+      </mat-select>
+  </mat-form-field>
+
+  <mat-accordion *ngIf="selection == 'tree-0'">
+
+    <mat-expansion-panel *ngFor="let faculty of test">
+      <mat-expansion-panel-header >
+        Факултет {{faculty.name}} &nbsp; <span *ngIf="faculty.abbreviation">({{faculty.abbreviation}})</span>
+      </mat-expansion-panel-header>
+
+      <mat-list>
+        <mat-list-item *ngFor="let course of faculty.courses">
+          <p>{{course.name}}</p>
+          <span class="example-spacer"></span>
+        </mat-list-item>
+      </mat-list>
+
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</div>

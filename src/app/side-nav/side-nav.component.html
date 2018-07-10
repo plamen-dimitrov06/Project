@@ -1,0 +1,37 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar *ngIf="auth.isLoggedIn()" color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">Меню</h1>
+    <span class="example-spacer"></span>
+    <button mat-button [matMenuTriggerFor]="dropdown" matSuffix mat-icon-button aria-label="Profile">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu class="dropdown" #dropdown="matMenu">
+      <button mat-menu-item routerLink="profile">Профил</button>
+      <button mat-menu-item (click)="auth.logout(); snav.toggle()">Logout</button>
+    </mat-menu>
+  </mat-toolbar>
+
+  <mat-toolbar *ngIf="search">
+    <mat-form-field floatLabel="never">
+      <input matInput type="text" placeholder="Търсене" [(ngModel)]="value" (click)="value=''"/>
+      <button *ngIf="value" mat-button matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+        <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>search</mat-icon>
+        </button>
+    </mat-form-field>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list *ngIf="auth.isLoggedIn()">
+        <a mat-list-item (click)='setTitle(nav.key)' routerLink="{{nav.value}}" *ngFor="let nav of navItems">{{nav.key}}</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="main">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

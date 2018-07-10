@@ -1,0 +1,13 @@
+<img src="../assets/images/banner.svg" width=300 height=300 alt="">
+<div class="form-group">
+  <form (submit)="login()" #loginForm="ngForm">
+      <mat-form-field>
+        <input matInput type="email" class="form-control" name="email" placeholder="Имейл адрес" required [(ngModel)]="credentials.email">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" class="form-control" name="password" placeholder="Парола" required [(ngModel)]="credentials.password">
+      </mat-form-field>
+      <p>Нямате регистрация ? Регистрирайте се <a routerLink="/register">тук.</a></p>
+      <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Вход</button>
+  </form>
+</div>

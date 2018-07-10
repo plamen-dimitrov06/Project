@@ -1,0 +1,43 @@
+form {
+  min-width: 150px;
+max-width: 500px;
+width: 100%;
+margin: 0 auto;
+}
+
+mat-card {
+  margin-bottom: 64px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-radio-group {
+  max-width: 500px;
+  width: 100%;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.example-selected-value {
+  margin: 15px 0;
+}
+
+#fileUploads {
+  margin: 1em 0;
+}
+
+mat-card {
+  margin-top: 1em;
+}
