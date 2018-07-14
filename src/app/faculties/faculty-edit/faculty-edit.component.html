@@ -1,0 +1,28 @@
+<mat-card>
+
+  <mat-card-title>Редактиране на Факултет</mat-card-title>
+
+  <mat-card-content>
+      <div class="container">
+          <form (ngSubmit)="updateFaculty(faculty._id)" #facultyForm="ngForm">
+
+            <mat-form-field>
+              <input [(ngModel)]="faculty.name" type="text"  name="name" matInput placeholder="Име на факултета" required/>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <input [(ngModel)]="faculty.abbreviation" type="text"  name="abbreviation" matInput placeholder="Абривиатура"/>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <textarea [(ngModel)]="faculty.description" type="text"  name="description" matInput placeholder="Описание" ></textarea>
+            </mat-form-field>
+
+            <button mat-raised-button color="warn" routerLink="/faculties">Отказ</button>
+            <button type="submit" mat-raised-button color="primary" [disabled]="!facultyForm.form.valid">Запазване</button>
+
+          </form>
+        </div>
+  </mat-card-content>
+
+</mat-card>

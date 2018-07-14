@@ -1,0 +1,16 @@
+<h2 class="mat-h1">Управление на факултети</h2>
+<a mat-raised-button mat-button routerLink="faculty-add">Добавяне</a>
+<div class="container">
+  <mat-grid-list [cols]="cols | async" gutterSize='40px'>
+    <mat-grid-tile *ngFor="let faculty of faculties">
+      <mat-grid-tile-header>{{ faculty.name }}</mat-grid-tile-header>
+      <mat-list>
+        <mat-list-item *ngIf='faculty.abbreviation'>Абревиатура: {{faculty.abbreviation}} </mat-list-item>
+        <mat-list-item *ngIf='faculty.description'>Описание: {{faculty.description}} </mat-list-item>
+      </mat-list>
+      <mat-grid-tile-footer>
+        <a *ngFor="let action of actions" mat-icon-button routerLink="{{action.value}}//{{faculty._id}}"><mat-icon >{{action.key}}</mat-icon></a>
+      </mat-grid-tile-footer>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

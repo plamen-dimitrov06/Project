@@ -1,0 +1,63 @@
+
+<mat-card>
+
+  <mat-card-title>Изтриване на дисциплина</mat-card-title>
+
+  <mat-card-content>
+    <div class="container">
+      <form (ngSubmit)="deleteSubject(subject._id)" #subjectForm="ngForm">
+
+        <mat-form-field>
+          <input [(ngModel)]="subject.name" type="text"  name="name" matInput placeholder="Име на дисциплината" disabled/>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input [(ngModel)]="subject.abbreviation" type="text"  name="abbreviation" matInput placeholder="Абривиатура" disabled/>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <textarea [(ngModel)]="subject.description" type="text"  name="description" matInput placeholder="Описание" disabled></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="subject.start_date" [matDatepicker]="picker" name="start_date" disabled placeholder="Начало">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input [(ngModel)]="subject.lectures" type="number"  name="lectures" matInput placeholder="Лекции" disabled />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input [(ngModel)]="subject.exercises" type="number"  name="exercises" matInput placeholder="Упражнения" disabled />
+        </mat-form-field>
+
+        <mat-label>Курсова задача:</mat-label>
+        <mat-radio-group class="example-radio-group" name="courseWork" disabled [(ngModel)]="subject.courseWork">
+          <mat-radio-button color="primary" class="example-radio-button" [value]="yes">
+            Да
+          </mat-radio-button>
+          <mat-radio-button color="primary" class="example-radio-button" [value]="no">
+            Не
+          </mat-radio-button>
+        </mat-radio-group>
+
+        <mat-label>Оценяване:</mat-label>
+        <mat-radio-group class="example-radio-group" name="evaluation" disabled [(ngModel)]="subject.evaluation">
+          <mat-radio-button color="primary" class="example-radio-button" [value]="exam">
+            Изпит
+          </mat-radio-button>
+          <mat-radio-button color="primary" class="example-radio-button" [value]="grade">
+            Текуща оценка
+          </mat-radio-button>
+        </mat-radio-group>
+
+        <button mat-raised-button color="warn" routerLink="..">Отказ</button>
+        <button type="submit" mat-raised-button color="primary">Изтриване</button>
+
+      </form>
+    </div>
+  </mat-card-content>
+
+</mat-card>
