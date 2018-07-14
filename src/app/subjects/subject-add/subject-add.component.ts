@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AuthenticationService, TokenPayload } from '../authentication.service';
+import { AuthenticationService, TokenPayload } from '../../authentication.service';
 
 @Component({
   selector: 'app-subject-add',
