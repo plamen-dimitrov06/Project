@@ -1,53 +1,28 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Title } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
   styleUrls: ['./courses.component.css']
 })
-export class CoursesComponent implements OnInit, AfterViewInit {
+export class CoursesComponent implements OnInit {
 
   search: string;
-  actions = [{key: 'edit', value: '/courses/course-edit'}, { key: 'closed', value: '/courses/course-delete'}];
+  actions = [{key: 'edit', value: '/courses/course-edit', title: 'Редактиране на специалност'},
+            { key: 'closed', value: '/courses/course-delete', title: 'Изтриване на специалност'}];
   test: Object;
-  arr: Array<CourseData[]>;
-  displayedColumns: Array<String>;
-  dataSource: MatTableDataSource<Object[]>;
-  constructor(private http: HttpClient) { }
-  data: Object[];
+  constructor(private http: HttpClient,
+              private titleService: Title) { }
   ngOnInit() {
     this.http.get('/api/courses').subscribe(data => {
       this.test = data;
-      this.arr = Object.keys(this.test).map(key => this.test[key]);
-      this.displayedColumns = ['id', 'name', 'progress', 'color'];
-      this.dataSource = new MatTableDataSource(this.arr);
-    });
-
-  }
-  ngAfterViewInit() {
-  }
-
-  findCourse(searchValue: string) {
-    this.http.get('/api/courses').subscribe(data => {
-      this.test = data;
-      console.log(this.test);
     });
   }
+
+  public setTitle( newTitle: string) {
+    this.titleService.setTitle( newTitle );
+  }
 }
-
-export interface CourseData {
-  id: string;
-  name: string;
-  abbreviation: string;
-  description: string;
-  courseDegree: string;
-}
-
-// const courses: Object[] = [];
-// const arr = Object.keys(this.test).map(key => this.test[key]);
- // for (let i = 1; i <= arr.length; i++) { courses.push(arr[i]); }
-
-// Assign the data to the data source for the table to render
-// this.dataSource = new MatTableDataSource(arr);

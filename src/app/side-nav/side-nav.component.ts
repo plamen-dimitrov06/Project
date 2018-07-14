@@ -30,7 +30,7 @@ ngOnInit() {
   const data6 = { key: 'Специалности', value: 'courses'};
   this.navItems.push(data6);
 }
-//   'Начало','Структура','Потребители','Дисциплини','Факултети','Статистика'
+
   constructor(public auth: AuthenticationService,
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,

@@ -1,6 +1,5 @@
 import {MediaMatcher} from '@angular/cdk/layout';
-import { Component, OnInit, ChangeDetectorRef, ElementRef } from '@angular/core';
-import { MyOwnCustomMaterialModuleModule } from '../my-own-custom-material-module/my-own-custom-material-module.module';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Chart } from 'chart.js';
 import { AuthenticationService } from '../authentication.service';
 
@@ -17,6 +16,7 @@ export class HomeComponent implements OnInit {
   myChart2: any;
 
  ngOnInit() {
+  // ideally the api should be doing chat data population, only visual parameters should be hardcoded
   this.chartit();
  }
 

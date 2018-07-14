@@ -1,7 +1,7 @@
 <h2 class="mat-h1">Управление на специалности</h2>
-<a mat-raised-button mat-button routerLink="course-add">Добавяне</a>
+<a mat-raised-button (click)="setTitle( 'Нова специалност' )" mat-button routerLink="course-add">Добавяне</a>
 <br/>
-<!-- <form (ngSubmit)="findCourse(search)" #courseForm="ngForm">
+<!-- <form (ngSubmit)="findCourse(search)" #courseForm="ngForm"> // This is intended as future feature for searching courses
   <mat-form-field class="example-full-width">
     <input [(ngModel)]="search" type="text"  name="text" matInput placeholder="Търсене"/>
   </mat-form-field>
@@ -14,7 +14,7 @@
       <p>{{course.name}} - {{course.courseDegree}} - {{course.faculty.name}}</p>
       <span class="example-spacer"></span>
       <span>
-        <a *ngFor="let action of actions" mat-icon-button routerLink="{{action.value}}//{{course._id}}">
+        <a *ngFor="let action of actions" mat-icon-button (click)="setTitle( action.title )" routerLink="{{action.value}}//{{course._id}}">
           <mat-icon >{{action.key}}</mat-icon>
         </a>
       </span>

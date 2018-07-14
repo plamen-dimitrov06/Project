@@ -16,6 +16,7 @@ export class CourseDeleteComponent implements OnInit {
   ngOnInit() {
     this.getCourse(this.route.snapshot.params['id']);
   }
+
   getCourse(id) {
     this.http.get('/api/courses/course-delete' + id).subscribe(data => {
       this.course = data;

@@ -9,7 +9,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class SubjectDeleteComponent implements OnInit {
 
-  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
+  constructor(private http: HttpClient,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   subject: {};
 

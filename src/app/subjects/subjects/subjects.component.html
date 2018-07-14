@@ -1,5 +1,5 @@
 <h2 class="mat-h1">Управление на дисциплини</h2>
-<a mat-raised-button mat-button routerLink="subject-add">Добавяне</a>
+<a mat-raised-button mat-button (click)="setTitle( 'Нова дисциплина' )" routerLink="subject-add">Добавяне</a>
 <br/>
 <!-- <form (ngSubmit)="findCourse(search)" #courseForm="ngForm">
   <mat-form-field class="example-full-width">
@@ -13,7 +13,7 @@
       <p>{{course.name}}( {{course.author.name}} )</p>
       <span class="example-spacer"></span>
       <span>
-        <a *ngFor="let action of actions" mat-icon-button routerLink="{{action.value}}//{{course._id}}">
+        <a *ngFor="let action of actions" mat-icon-button (click)="setTitle( action.title )" routerLink="{{action.value}}//{{course._id}}">
           <mat-icon >{{action.key}}</mat-icon>
         </a>
       </span>

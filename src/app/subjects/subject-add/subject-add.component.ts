@@ -22,7 +22,9 @@ export class SubjectAddComponent implements OnInit {
     author: this.author
   };
 
-  constructor(private http: HttpClient, private router: Router, public auth: AuthenticationService) { }
+  constructor(private http: HttpClient,
+              private router: Router,
+              public auth: AuthenticationService) { }
 
   ngOnInit() {
   }
