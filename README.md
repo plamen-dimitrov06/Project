@@ -44,6 +44,15 @@ These are the four main components of the project the rest can be found in the [
 * [MongoDB](https://www.mongodb.com) - Document based NoSQL database
 * [Node.js](https://nodejs.org/en/) - JavaScript runtime
 
+## To-do:
+
+* Implement tests using Karma and Protractor frameworks ( both e2e (end to end) and unit tests )
+* Implement API authentication protection
+* Implement additional error handling and error logging
+* Implement user component ( CRUD and management functionality )
+* Implement data tables ( server-side filtering, sorting and searching )
+* Implement a scheduling functionality ( weekly schedule and course schedule )
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
