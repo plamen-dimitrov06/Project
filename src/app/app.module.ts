@@ -9,14 +9,14 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { FileSelectDirective } from 'ng2-file-upload';
-import { SideNavComponent } from './side-nav/side-nav.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { SideNavComponent } from './side-nav/side-nav.component';
 import { StructureComponent } from './structure/structure.component';
 import { HomeComponent } from './home/home.component';
-import { UsersComponent } from './users/users.component';
+// User related components/services
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './auth-guard.service';
 import { AuthenticationService } from './authentication.service';
 // Faculty component import
 import { FacultiesComponent } from './faculties/faculties/faculties.component';
@@ -33,7 +33,8 @@ import { SubjectsComponent } from './subjects/subjects/subjects.component';
 import { SubjectAddComponent } from './subjects/subject-add/subject-add.component';
 import { SubjectEditComponent } from './subjects/subject-edit/subject-edit.component';
 import { SubjectDeleteComponent } from './subjects/subject-delete/subject-delete.component';
-import { AuthGuardService } from './auth-guard.service';
+import { UnauthorizedComponent } from './errors/unauthorized/unauthorized.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -42,7 +43,6 @@ import { AuthGuardService } from './auth-guard.service';
     SideNavComponent,
     StructureComponent,
     HomeComponent,
-    UsersComponent,
     FacultyAddComponent,
     RegisterComponent,
     LoginComponent,
@@ -50,14 +50,15 @@ import { AuthGuardService } from './auth-guard.service';
     FacultyEditComponent,
     FacultyDeleteComponent,
     CoursesComponent,
-    FileSelectDirective,
     CourseAddComponent,
     CourseEditComponent,
     CourseDeleteComponent,
     SubjectsComponent,
     SubjectAddComponent,
     SubjectEditComponent,
-    SubjectDeleteComponent
+    SubjectDeleteComponent,
+    UnauthorizedComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +70,7 @@ import { AuthGuardService } from './auth-guard.service';
     AppRoutingModule,
     FlexLayoutModule,
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

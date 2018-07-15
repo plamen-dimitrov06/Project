@@ -47,8 +47,6 @@ export class FacultiesComponent implements OnInit {
 
   this.cols = this.observableMedia.asObservable()
     .map(change => {
-      console.log(change);
-      console.log(grid.get(change.mqAlias));
       return grid.get(change.mqAlias);
     })
     .startWith(start);

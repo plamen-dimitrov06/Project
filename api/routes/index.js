@@ -42,7 +42,7 @@ router.put('/subjects/subject-edit:id', ctrlSubject.updateSubject);
 router.get('/subjects/subject-delete:id', ctrlSubject.getSubjectById);
 router.delete('/subjects/subject-delete:id', ctrlSubject.deleteSubject);
 
-router.get('/profile', ctrlProfile.profileRead);
+router.get('/profile', auth, ctrlProfile.profileRead);
 
 // authentication
 router.post('/register', ctrlAuth.register);

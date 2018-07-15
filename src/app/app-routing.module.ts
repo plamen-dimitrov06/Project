@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { StructureComponent } from './structure/structure.component';
 import { HomeComponent } from './home/home.component';
-import { UsersComponent } from './users/users.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 // Faculty components
@@ -20,7 +19,9 @@ import { SubjectsComponent } from './subjects/subjects/subjects.component';
 import { SubjectAddComponent } from './subjects/subject-add/subject-add.component';
 import { SubjectEditComponent } from './subjects/subject-edit/subject-edit.component';
 import { SubjectDeleteComponent } from './subjects/subject-delete/subject-delete.component';
+import { UnauthorizedComponent } from './errors/unauthorized/unauthorized.component';
 import { AuthGuardService } from './auth-guard.service';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -41,10 +42,10 @@ const routes: Routes = [
   { path: 'courses/course-add', component: CourseAddComponent },
   { path: 'courses/course-edit/:id', component: CourseEditComponent },
   { path: 'courses/course-delete/:id', component: CourseDeleteComponent },
-  { path: 'users', component: UsersComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'unauthorized', component: UnauthorizedComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'profile', component : SubjectDeleteComponent, canActivate: [AuthGuardService] }
+  { path: 'profile', component : ProfileComponent, canActivate: [AuthGuardService] }
 ];
 
 @NgModule({
