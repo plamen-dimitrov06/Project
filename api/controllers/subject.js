@@ -14,7 +14,7 @@ module.exports = {
       User.findById(subject.author).then(user =>{
         user.lecturesCreated.push(subject._id);
         user.save();
-      })
+      });
       res.redirect("/api/subjects");
     }).catch(err =>{
       console.log(err.message);
@@ -68,4 +68,4 @@ module.exports = {
   });
   }
 
-}
+};

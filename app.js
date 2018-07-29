@@ -1,19 +1,17 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var cookieSession = require('cookie-session');
-var passport = require('passport');
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+const passport = require('passport');
 const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
 const crypto = require('crypto');
 const Grid = require('gridfs-stream');
-let mongoose = require('mongoose');
-require('./api/models/db');
+const mongoose = require('mongoose');
 
+require('./api/models/db');
 require('./api/config/passport');
+
 var routesApi = require('./api/routes/index');
 
 var app = express();
@@ -70,7 +68,7 @@ app.get('/download/:filename', (req, res) => {
         root: "uploads"
     });
     // set the proper content type
-    res.set('Content-Type', files[0].contentType)
+    res.set('Content-Type', files[0].contentType);
     // Return response
     return readstream.pipe(res);
   });

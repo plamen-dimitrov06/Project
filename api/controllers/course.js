@@ -17,7 +17,7 @@ module.exports = {
       Faculty.findById(course.faculty).then(faculty => {
         faculty.courses.push(course._id);
         faculty.save();
-      })
+      });
       res.redirect("/api/courses");
     }).catch(err =>{
       console.log(err.message);
@@ -62,4 +62,4 @@ module.exports = {
     console.log(req);
     next();
   }
-}
+};
