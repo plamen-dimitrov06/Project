@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { CourseInfo } from '../course.info';
 
 @Component({
   selector: 'app-course-add',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CourseAddComponent implements OnInit {
 
-  course = {};
+  course = <CourseInfo>{};
   faculties = {};
   bachelors = 'Бакалавър';
   masters = 'Магистър';
