@@ -2,18 +2,18 @@ var mongoose = require('mongoose');
 const Grid = require('gridfs-stream');
 var gracefulShutdown;
 mongoose.Promise = require('bluebird');
-var dbURI = 'mongodb://localhost:27017/unidb';
+var dbURI = 'mongodb+srv://readOnly:CupCake123!@unidb-oqtm9.mongodb.net/unidb?authSource=unidb&w=1';
 if (process.env.NODE_ENV === 'production') {
   dbURI = process.env.MONGOLAB_URI;
 }
 // Mongo URI
-const mongoURI = 'mongodb://localhost:27017/unidb';
+const mongoURI = 'mongodb+srv://readOnly:CupCake123!@unidb-oqtm9.mongodb.net/unidb?authSource=unidb&w=1';
 
 
-mongoose.connect(dbURI, {promiseLibrary: require('bluebird'), useNewUrlParser: true, autoReconnect : true, poolSize: 5});
+mongoose.connect(dbURI, {promiseLibrary: require('bluebird'), replicaSet: 'UniDB-shard-0', autoReconnect : true, poolSize: 5});
 
 // Create mongo connection
-const conn = mongoose.createConnection(mongoURI, {promiseLibrary: require('bluebird'), useNewUrlParser: true});
+const conn = mongoose.createConnection(mongoURI, {promiseLibrary: require('bluebird'), replicaSet: 'UniDB-shard-0',});
 
 let gfs;
 conn.once('open', () => {

@@ -24,7 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const storage = new GridFsStorage({
-  url: 'mongodb://localhost:27017/unidb',
+  url: 'mongodb+srv://readOnly:CupCake123!@unidb-oqtm9.mongodb.net/unidb?authSource=unidb&w=1',
   file: (req, file) => {
     return new Promise((resolve, reject) => {
       crypto.randomBytes(16, (err, buf) => {
