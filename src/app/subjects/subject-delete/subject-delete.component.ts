@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SubjectInfo } from '../subject.info';
 
 @Component({
   selector: 'app-subject-delete',
@@ -13,14 +14,14 @@ export class SubjectDeleteComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute) { }
 
-  subject: {};
+  subject = <SubjectInfo>{};
 
   ngOnInit() {
     this.getSubject(this.route.snapshot.params['id']);
   }
   getSubject(id) {
     this.http.get('/api/subjects/subject-delete' + id).subscribe(data => {
-      this.subject = data;
+      this.subject = <SubjectInfo>data;
     });
   }
 

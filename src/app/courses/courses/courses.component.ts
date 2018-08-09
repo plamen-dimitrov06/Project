@@ -13,12 +13,12 @@ export class CoursesComponent implements OnInit {
   search: string;
   actions = [{key: 'edit', value: '/courses/course-edit', title: 'Редактиране на специалност'},
             { key: 'closed', value: '/courses/course-delete', title: 'Изтриване на специалност'}];
-  test: Object;
+  courses: Object;
   constructor(private http: HttpClient,
               private titleService: Title) { }
   ngOnInit() {
     this.http.get('/api/courses').subscribe(data => {
-      this.test = data;
+      this.courses = data;
     });
   }
 

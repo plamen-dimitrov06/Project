@@ -9,11 +9,11 @@
 </form> -->
 <div class="container mat-elevation-z8">
   <mat-list>
-    <mat-list-item *ngFor="let course of test">
-      <p>{{course.name}}( {{course.author.name}} )</p>
+    <mat-list-item *ngFor="let subject of subjects">
+      <p>{{subject.name}}( {{subject.author.name}} )</p>
       <span class="example-spacer"></span>
       <span>
-        <a *ngFor="let action of actions" mat-icon-button (click)="setTitle( action.title )" routerLink="{{action.value}}//{{course._id}}">
+        <a *ngFor="let action of actions" mat-icon-button (click)="setTitle( action.title )" routerLink="{{action.value}}//{{subject._id}}">
           <mat-icon >{{action.key}}</mat-icon>
         </a>
       </span>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CourseInfo } from '../course.info';
 
 @Component({
   selector: 'app-course-edit',
@@ -9,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class CourseEditComponent implements OnInit {
 
-  course = {};
+  course = <CourseInfo>{};
 
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
 
@@ -19,7 +20,7 @@ export class CourseEditComponent implements OnInit {
 
   getCourse(id) {
     this.http.get('/api/courses/course-edit' + id).subscribe(data => {
-      this.course = data;
+      this.course = <CourseInfo>data;
     });
   }
 

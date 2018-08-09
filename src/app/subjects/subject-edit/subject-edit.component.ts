@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SubjectInfo } from '../subject.info';
 
 @Component({
   selector: 'app-subject-edit',
@@ -13,7 +14,7 @@ export class SubjectEditComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute) { }
 
-  subject: {};
+  subject = <SubjectInfo>{};
 
   ngOnInit() {
     this.getSubject(this.route.snapshot.params['id']);
@@ -21,7 +22,7 @@ export class SubjectEditComponent implements OnInit {
 
   getSubject(id) {
     this.http.get('/api/subjects/subject-edit' + id).subscribe(data => {
-      this.subject = data;
+      this.subject = <SubjectInfo>data;
     });
   }
 

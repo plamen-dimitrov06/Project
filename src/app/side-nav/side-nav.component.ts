@@ -21,8 +21,8 @@ ngOnInit() {
   this.navItems.push(data);
   const data2 = {key: 'Структура', value: 'structure'};
   this.navItems.push(data2);
- // const data3 = { key: 'Потребители', value: 'users'};
- // this.navItems.push(data3);
+  const data3 = { key: 'Потребители', value: 'users'};
+  this.navItems.push(data3);
   const data4 = { key: 'Дисциплини', value: 'subjects'};
   this.navItems.push(data4);
   const data5 = { key: 'Факултети', value: 'faculties'};

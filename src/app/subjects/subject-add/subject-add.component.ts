@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthenticationService, TokenPayload } from '../../authentication.service';
+import { SubjectInfo } from '../subject.info';
 
 @Component({
   selector: 'app-subject-add',
@@ -16,7 +17,7 @@ export class SubjectAddComponent implements OnInit {
   exam = 'Изпит';
   grade = 'Текуща оценка';
   author = this.auth.getUserDetails()._id;
-  subject = {
+  subject = <SubjectInfo>{
     evaluation : '',
     courseWork : '',
     author: this.author

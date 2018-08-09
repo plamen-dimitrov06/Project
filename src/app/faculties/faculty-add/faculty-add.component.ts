@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { FacultyInfo } from '../faculty.info';
 
 @Component({
   selector: 'app-faculty-add',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class FacultyAddComponent implements OnInit {
 
-  faculty = { };
+  faculty = <FacultyInfo>{ };
 
   constructor(private http: HttpClient, private router: Router) { }
 

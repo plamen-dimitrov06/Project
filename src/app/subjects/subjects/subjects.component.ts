@@ -10,7 +10,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class SubjectsComponent implements OnInit {
 
-  test = {};
+  subjects = {};
   actions = [{key: 'edit', value: '/subjects/subject-edit', title: 'Редактиране на дисциплина' },
             { key: 'closed', value: '/subjects/subject-delete', title: 'Изтриване на дисциплина'}];
   constructor(auth: AuthenticationService,
@@ -19,7 +19,7 @@ export class SubjectsComponent implements OnInit {
 
   ngOnInit() {
     this.http.get('/api/subjects').subscribe(data => {
-      this.test = data;
+      this.subjects = data;
     });
   }
 
