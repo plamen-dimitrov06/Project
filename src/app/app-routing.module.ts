@@ -22,6 +22,7 @@ import { SubjectDeleteComponent } from './subjects/subject-delete/subject-delete
 import { UnauthorizedComponent } from './errors/unauthorized/unauthorized.component';
 import { AuthGuardService } from './auth-guard.service';
 import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full', canActivate: [AuthGuardService] },
@@ -45,7 +46,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'profile', component : ProfileComponent, canActivate: [AuthGuardService] }
+  { path: 'profile', component : ProfileComponent, canActivate: [AuthGuardService] },
+  { path: 'users', component: UsersComponent}
 ];
 
 @NgModule({

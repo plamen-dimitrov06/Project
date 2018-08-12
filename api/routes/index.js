@@ -12,6 +12,7 @@ var ctrlAuth = require('../controllers/authentication');
 var ctrlFaculty = require('../controllers/faculty');
 var ctrlCourses = require('../controllers/course');
 var ctrlSubject = require('../controllers/subject');
+var ctrlUsers = require('../controllers/user');
 var ctrlUpload = require('../controllers/upload');
 
 // structure routes
@@ -42,6 +43,10 @@ router.put('/subjects/subject-edit:id', ctrlSubject.updateSubject);
 router.get('/subjects/subject-delete:id', ctrlSubject.getSubjectById);
 router.delete('/subjects/subject-delete:id', ctrlSubject.deleteSubject);
 
+// user routes
+router.get('/users', ctrlUsers.getUsers);
+
+//
 router.get('/profile', auth, ctrlProfile.profileRead);
 
 // authentication

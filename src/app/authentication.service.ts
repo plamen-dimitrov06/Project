@@ -44,10 +44,11 @@ export class AuthenticationService {
 
   public getUserDetails(): UserDetails {
     const token = this.getToken();
+
     let payload;
     if (token) {
       payload = token.split('.')[1];
-      payload = window.atob(payload);
+      payload = window.atob(payload.replace('-', '+').replace('_', '/'));
       return JSON.parse(payload);
     } else {
       return null;

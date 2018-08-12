@@ -35,6 +35,7 @@ import { SubjectEditComponent } from './subjects/subject-edit/subject-edit.compo
 import { SubjectDeleteComponent } from './subjects/subject-delete/subject-delete.component';
 import { UnauthorizedComponent } from './errors/unauthorized/unauthorized.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from './users/users.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { ProfileComponent } from './profile/profile.component';
     SubjectEditComponent,
     SubjectDeleteComponent,
     UnauthorizedComponent,
-    ProfileComponent
+    ProfileComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
