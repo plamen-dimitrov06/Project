@@ -32,7 +32,7 @@ module.exports = {
       console.log(err.message);
     });
   },
-
+// this is a gitlens test
   getCourseById: (req,res) => {
     Course.findById(req.params.id).then(course =>{
       res.json(course);
