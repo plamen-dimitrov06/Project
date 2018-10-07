@@ -50,6 +50,7 @@ These are the four main components of the project the rest can be found in the [
 * Implement API authentication protection
 * Implement additional error handling and error logging
 * Implement user component ( CRUD and management functionality )
+* Fix database connection settings ( Currently there are multiple connections and that's not optimal )
 * ~~Implement data tables ( server-side filtering, sorting and pagination )~~
 * Implement a scheduling functionality ( weekly schedule and course schedule )
 
