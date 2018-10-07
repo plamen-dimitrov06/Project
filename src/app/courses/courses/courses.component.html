@@ -1,12 +1,66 @@
-<h2 class="mat-h1">Управление на специалности</h2>
-<a mat-raised-button (click)="setTitle( 'Нова специалност' )" mat-button routerLink="course-add">Добавяне</a>
-<br/>
+<div class="container">
+
+  <h2 class="mat-h1">Управление на специалности</h2>
+
+  <a mat-raised-button color="primary" (click)="setTitle( 'Нова специалност' )" mat-button routerLink="course-add">Добавяне</a>
+
+  <br/>
 <!-- <form (ngSubmit)="findCourse(search)" #courseForm="ngForm"> // This is intended as future feature for searching courses
   <mat-form-field class="example-full-width">
     <input [(ngModel)]="search" type="text"  name="text" matInput placeholder="Търсене"/>
   </mat-form-field>
   <button type='submit' mat-raised-button mat-button (ngSubmit)="findCourse(search)">Търсене</button>
 </form> -->
+
+
+  <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Търсене">
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Специалност </th>
+        <td mat-cell *matCellDef="let course"> {{course.name}} </td>
+      </ng-container>
+
+      <!-- Type Column -->
+      <ng-container matColumnDef="degree">
+        <th mat-header-cell *matHeaderCellDef> Степен </th>
+        <td mat-cell *matCellDef="let course"> {{course.courseDegree}} </td>
+      </ng-container>
+
+      <!-- Date Created Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Факултет </th>
+        <td mat-cell *matCellDef="let course"> {{course.faculty.name}} </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Действия </th>
+        <td mat-cell *matCellDef="let course">
+            <a *ngFor="let action of actions" mat-icon-button (click)="setTitle( action.title )" routerLink="{{action.value}}//{{course._id}}"><mat-icon >{{action.key}}</mat-icon></a>
+        </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+  </div>
+</div>
+<!--
 <div class="container mat-elevation-z8">
 
   <mat-list>
@@ -21,4 +75,4 @@
       <mat-divider></mat-divider>
     </mat-list-item>
   </mat-list>
-</div>
+</div> -->
