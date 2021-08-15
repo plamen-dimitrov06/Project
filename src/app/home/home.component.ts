@@ -1,4 +1,4 @@
-import {MediaMatcher} from '@angular/cdk/layout';
+import { MediaMatcher } from '@angular/cdk/layout';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Chart } from 'chart.js';
 import { AuthenticationService } from '../authentication.service';
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
  }
 
  chartit() {
-    const cty = document.getElementById('canvas');
+    const cty = <HTMLCanvasElement> document.getElementById('canvas');
     this.myChart = new Chart(cty, {
       type: 'pie',
       data: {
@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
           }
       }
     });
-    const ctx = document.getElementById('canvas2');
+    const ctx = <HTMLCanvasElement> document.getElementById('canvas2');
     this.myChart2 = new Chart(ctx, {
       type: 'bar',
       data: {
