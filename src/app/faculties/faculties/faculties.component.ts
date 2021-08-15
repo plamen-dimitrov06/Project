@@ -45,6 +45,7 @@ export class FacultiesComponent implements OnInit {
     }
   });
 
+  // TODO : rewrite this.
   // this.cols = this.observableMedia.asObservable()
   //   .map(change => {
   //     return grid.get(change.mqAlias);
