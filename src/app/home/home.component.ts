@@ -1,7 +1,7 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { Chart } from 'chart.js';
 import { AuthenticationService } from '../authentication.service';
+import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-home',
