@@ -13,7 +13,12 @@
       </mat-list>
 
       <mat-grid-tile-footer>
-        <a *ngFor="let action of actions" mat-icon-button (click)="setTitle( action.title )" routerLink="{{action.value}}//{{faculty._id}}"><mat-icon >{{action.key}}</mat-icon></a>
+        <a *ngFor="let action of actions"
+          mat-icon-button
+          (click)="setTitle( action.title )"
+          routerLink="{{action.value}}//{{faculty._id}}">
+            <mat-icon >{{action.key}}</mat-icon>
+        </a>
       </mat-grid-tile-footer>
 
     </mat-grid-tile>
