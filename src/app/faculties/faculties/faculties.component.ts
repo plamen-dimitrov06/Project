@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ObservableMedia } from '@angular/flex-layout';
+import { MediaObserver } from '@angular/flex-layout';
 import { Observable} from 'rxjs';
 import { Title } from '@angular/platform-browser';
 import { map } from 'rxjs/operators'; // TODO: check if these are needed
@@ -21,7 +21,7 @@ export class FacultiesComponent implements OnInit {
             { key: 'closed', value: '/faculties/faculty-delete', title: 'Изтриване на факултет'}];
 
   constructor(private http: HttpClient,
-              private observableMedia: ObservableMedia,
+              private observableMedia: MediaObserver,
               private titleService: Title) { }
 
   ngOnInit() {
