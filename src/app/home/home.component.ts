@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
               borderWidth: 2
           }]
       },
-      options: {
+      options: <any> {
           scales: {
               yAxes: [{
                   ticks: {
@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit {
               borderWidth: 1
           }]
       },
-      options: {
+      options: <any> {
           scales: {
               yAxes: [{
                   ticks: {
