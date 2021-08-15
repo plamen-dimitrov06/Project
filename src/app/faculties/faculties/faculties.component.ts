@@ -45,12 +45,9 @@ export class FacultiesComponent implements OnInit {
     }
   });
 
-  // TODO : rewrite this.
-  // this.cols = this.observableMedia.asObservable()
-  //   .map(change => {
-  //     return grid.get(change.mqAlias);
-  //   })
-  //   .startWith(start);
+  this.cols = this.observableMedia.asObservable()
+    .pipe(
+      map(change  => { return grid.get(change[0].mqAlias); }),startWith(start));
   }
 
   public setTitle( newTitle: string) {
