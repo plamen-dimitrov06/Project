@@ -15,6 +15,11 @@ export class SubjectDeleteComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   subject = <SubjectInfo>{};
+  // defining properties so they are present in the template
+  yes = 'yes';
+  no = 'yes';
+  exam = 'grade';
+  grade = 'grade';
 
   ngOnInit() {
     this.getSubject(this.route.snapshot.params['id']);

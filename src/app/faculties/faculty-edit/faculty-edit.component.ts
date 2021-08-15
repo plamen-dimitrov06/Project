@@ -24,7 +24,7 @@ export class FacultyEditComponent implements OnInit {
     });
   }
 
-  updateFaculty(id, faculty) {
+  updateFaculty(id) {
     this.http.put('/api/faculties/faculty-edit' + id, this.faculty).subscribe(() => {
       this.router.navigateByUrl('/faculties');
       }, (err) => {
