@@ -1,10 +1,10 @@
+const { GridFsStorage } = require('multer-gridfs-storage');
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const multer = require('multer');
-const GridFsStorage = require('multer-gridfs-storage');
 const crypto = require('crypto');
 const Grid = require('gridfs-stream');
 const mongoose = require('mongoose');
