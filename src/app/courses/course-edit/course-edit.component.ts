@@ -24,7 +24,7 @@ export class CourseEditComponent implements OnInit {
     });
   }
 
-  updateCourse(id, course) {
+  updateCourse(id) {
     this.http.put('/api/courses/course-edit' + id, this.course).subscribe(() => {
       this.router.navigateByUrl('/courses');
       }, (err) => {

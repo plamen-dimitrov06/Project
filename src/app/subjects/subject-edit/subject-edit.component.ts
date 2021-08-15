@@ -26,7 +26,7 @@ export class SubjectEditComponent implements OnInit {
     });
   }
 
-  updateSubject(id, subject) {
+  updateSubject(id) {
     this.http.put('/api/subjects/subject-edit' + id, this.subject).subscribe(() => {
       this.router.navigateByUrl('/subjects');
       }, (err) => {
