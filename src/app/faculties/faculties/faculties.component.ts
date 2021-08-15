@@ -45,11 +45,11 @@ export class FacultiesComponent implements OnInit {
     }
   });
 
-  this.cols = this.observableMedia.asObservable()
-    .map(change => {
-      return grid.get(change.mqAlias);
-    })
-    .startWith(start);
+  // this.cols = this.observableMedia.asObservable()
+  //   .map(change => {
+  //     return grid.get(change.mqAlias);
+  //   })
+  //   .startWith(start);
   }
 
   public setTitle( newTitle: string) {
