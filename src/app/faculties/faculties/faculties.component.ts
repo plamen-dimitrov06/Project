@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { ObservableMedia } from '@angular/flex-layout';
 import { Observable} from 'rxjs';
 import { Title } from '@angular/platform-browser';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/takeWhile';
-import 'rxjs/add/operator/startWith';
+import { map } from 'rxjs/operators'; // TODO: check if these are needed
+import { takeWhile } from 'rxjs/operators';
+import { startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-faculties',
